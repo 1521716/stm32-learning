@@ -6,6 +6,8 @@
 - 中断_learn (Keil5: True)
 - 定时器_learn (Keil5: True)
 - GPIO_learn (Keil5: True)
+- Delay函数模块 (Keil5: False)
+- STM32工程模板 (Keil5: True)
 
 ## 目录结构
 - STM32Projects
