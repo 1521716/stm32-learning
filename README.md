@@ -8,6 +8,8 @@
 - GPIO_learn (Keil5: True)
 - Delay函数模块 (Keil5: True)
 - STM32工程模板 (Keil5: True)
+- AD_learn (Keil5: True)
+- DMA_learn (Keil5: True)
 
 ## 目录结构
 - STM32Projects
@@ -17,6 +19,7 @@
 
 ## 本次变更
 新增: STM32Projects/Delay函数模块/Delay.c, STM32Projects/Delay函数模块/Delay.h
-
-## 仓库中当前存在的目录
-- STM32Projects
+新增/更新项目: AD_learn (Keil5: True)
+新增/更新项目: DMA_learn (Keil5: True)
+新增/更新项目: 中断_learn (Keil5: True)
+新增/更新项目: 定时器_learn (Keil5: True)
