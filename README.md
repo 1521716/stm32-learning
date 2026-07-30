@@ -16,10 +16,3 @@
 
 ## 更新于
 2025年4月
-
-## 本次变更
-新增: STM32Projects/Delay函数模块/Delay.c, STM32Projects/Delay函数模块/Delay.h
-新增/更新项目: AD_learn (Keil5: True)
-新增/更新项目: DMA_learn (Keil5: True)
-新增/更新项目: 中断_learn (Keil5: True)
-新增/更新项目: 定时器_learn (Keil5: True)
