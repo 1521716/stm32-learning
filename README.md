@@ -10,6 +10,7 @@
 - STM32工程模板 (Keil5: True)
 - AD_learn (Keil5: True)
 - DMA_learn (Keil5: True)
+- 综合项目 (Keil5: True)
 
 ## 目录结构
 - STM32Projects
