@@ -1,6 +1,6 @@
 #include "stm32f10x.h"                  // Device header
 
-uint8_t Key1_Flag,Key2_Flag;
+uint8_t Key1_Flag,Key2_Flag,Project_Flag;
 
 void Key_Init(void)
 {
@@ -59,5 +59,11 @@ void EXTI15_10_IRQHandler(void)
 	{
 		Key2_Flag = 1;
 		EXTI_ClearITPendingBit(EXTI_Line11);
+	}
+	
+	if(EXTI_GetITStatus(EXTI_Line12) == SET)
+	{
+		Project_Flag = 1;
+		EXTI_ClearITPendingBit(EXTI_Line12);
 	}
 }

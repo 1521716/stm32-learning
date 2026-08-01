@@ -3,5 +3,6 @@
 
 void AD_Init(void);
 uint16_t AD_GetValue(void);
+float AD_GetTemp(void);
 
 #endif

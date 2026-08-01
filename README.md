@@ -10,6 +10,7 @@
 - STM32工程模板 (Keil5: True)
 - AD_learn (Keil5: True)
 - DMA_learn (Keil5: True)
+- 串口_learn (Keil5: True)
 - 综合项目 (Keil5: True)
 
 ## 目录结构
@@ -17,3 +18,10 @@
 
 ## 更新于
 2025年4月
+
+## 本次变更
+新增/更新项目: 串口_learn (Keil5: True)
+新增/更新项目: 综合项目 (Keil5: True)
+
+## 仓库中当前存在的目录
+- STM32Projects

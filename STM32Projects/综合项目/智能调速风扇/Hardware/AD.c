@@ -39,7 +39,17 @@ void AD_Init(void)
 
 uint16_t AD_GetValue(void)
 {
-	ADC_SoftwareStartConvCmd(ADC1,ENABLE);
-	while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET);
-	return ADC_GetConversionValue(ADC1);
+	uint32_t sum = 0;
+    for(uint8_t i = 0; i < 10; i++)
+    {
+		ADC_SoftwareStartConvCmd(ADC1, ENABLE);
+		while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET);
+		sum += ADC_GetConversionValue(ADC1);
+	}
+	return sum / 10;
+}
+
+float AD_GetTemp(void)
+{
+	return (float)AD_GetValue()*60/4095.0;
 }
