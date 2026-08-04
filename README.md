@@ -12,6 +12,7 @@
 - DMA_learn (Keil5: True)
 - 串口_learn (Keil5: True)
 - I2C_learn (Keil5: True)
+- SPI_learn (Keil5: True)
 - 综合项目 (Keil5: True)
 
 ## 目录结构
@@ -24,6 +25,7 @@
 新增/更新项目: 串口_learn (Keil5: True)
 新增/更新项目: 综合项目 (Keil5: True)
 新增/更新项目: I2C_learn (Keil5: True)
+新增/更新项目: SPI_learn (Keil5: True)
 
 ## 仓库中当前存在的目录
 - STM32Projects
