@@ -60,6 +60,22 @@ void W25Q64_SectorErase(uint32_t Address)
 	W25Q64_WaitBusy();							
 }
 
+/**
+  * @brief  读取W25Q64厂商ID和设备ID（验证SPI通信是否正常）
+  * @param  MID：输出参数，8位厂商ID（Winbond = 0xEF）
+  * @param  DID：输出参数，16位设备ID（W25Q64 = 0x4017）
+  * @retval 无
+  */
+void W25Q64_ReadID(uint8_t *MID, uint16_t *DID)
+{
+	MySPI_Start();
+	MySPI_SwapByte(W25Q64_JEDEC_ID);		// 发送JEDEC ID命令 0x9F
+	*MID = MySPI_SwapByte(W25Q64_DUMMY_BYTE);	// 厂商ID
+	*DID  = MySPI_SwapByte(W25Q64_DUMMY_BYTE) << 8;	// 设备ID高字节
+	*DID |= MySPI_SwapByte(W25Q64_DUMMY_BYTE);		// 设备ID低字节
+	MySPI_Stop();
+}
+
 void W25Q64_ReceiveData(uint32_t Address, uint8_t *DataArray, uint16_t Count)
 {
 	uint16_t i;

@@ -86,6 +86,7 @@ void USART1_IRQHandler(void)
 		
 		if(ch == '\r' || ch == '\n')
 		{
+			if(receive_index == 0) return;   // ← 加这一行，跳过 \n
 			receive_buf[receive_index] = '\0';
 			receive_index = 0;
 			cmd_Flag = 1;

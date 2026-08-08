@@ -39,9 +39,49 @@ int main()
 		if(cmd_Flag == 1)
 		{
 			cmd_Flag = 0;
+
+				// ---- QUERY：查询传感器实时数据 ----
 			if(strcmp(receive_buf,"QUERY") == 0)
 			{
-				printf("Temp:");
+				printf("=== Now ===\r\n");
+				printf("Temp: %.1f C\r\n", T);
+				printf("Light: %d %%\r\n", Light);
+				printf("DistV: %.2f V\r\n", Dist_V);
+				printf("Acc: X=%d Y=%d Z=%d\r\n", AX, AY, AZ);
+				printf("Gyro: X=%d Y=%d Z=%d\r\n", GX, GY, GZ);
+			}
+
+			// ---- READ：读取W25Q64中存储的历史数据 ----
+			if(strcmp(receive_buf,"READ") == 0)
+			{
+				uint8_t i;
+				uint8_t buf[5];
+				uint16_t temp_raw, distv_raw;
+				float temp_val, distv_val;
+
+				printf("================================\r\n");
+
+				for(i = 0; i < 50; i++)
+				{
+					// 从Flash读取第i条记录，每条5字节
+					W25Q64_ReceiveData(DATA_BASEADDRESS + i * 5, buf, 5);
+
+					// 全是0xFF表示未写过（Flash擦除后的默认值），跳过
+					if(buf[0] == 0xFF && buf[1] == 0xFF && buf[2] == 0xFF
+					   && buf[3] == 0xFF && buf[4] == 0xFF)
+						continue;
+
+					// 还原原始数据（与存储编码对应）
+					temp_raw  = (buf[0] << 8) | buf[1];   // T * 10
+					distv_raw = (buf[3] << 8) | buf[4];   // Dist_V * 100
+					temp_val  = temp_raw / 10.0f;
+					distv_val = distv_raw / 100.0f;
+
+					printf("%2d  T:%.1fC  L:%d%%  V:%.2fV\r\n",
+						   i + 1, temp_val, buf[2], distv_val);
+				}
+
+				printf("================================\r\n");
 			}
 		}
 		if(Key1_Flag == 1)

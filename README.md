@@ -14,14 +14,16 @@
 - I2C_learn (Keil5: True)
 - SPI_learn (Keil5: True)
 - 综合项目 (Keil5: True)
+- 复习_2026_08_08 (Keil5: True)
 
 ## 目录结构
 - STM32Projects
 
 ## 更新于
-2025年4月
+2026年8月
 
 ## 本次变更
+新增/更新项目: 复习_2026_08_08 (Keil5: True)
 新增/更新项目: 综合项目 (Keil5: True)
 
 ## 仓库中当前存在的目录
