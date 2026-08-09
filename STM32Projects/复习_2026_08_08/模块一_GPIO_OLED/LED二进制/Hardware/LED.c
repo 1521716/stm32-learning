@@ -22,22 +22,11 @@ void LED_Init(void)
 }
 
 /**
-  * @brief  控制单独LED亮灭
-  * @param  LEDNum 控制的LED
-  * @param  BitValue 亮或灭，0=灭，1=亮
-  * @retval  无
-  */
-void LED_SetState(uint16_t LEDNum,uint8_t BitValue)
-{
-	GPIO_WriteBit(GPIOA,LEDNum,(BitAction)BitValue);
-}
-
-/**
   * @brief  控制LED亮灭
   * @param  ByteValue 亮或灭，0=灭，1=亮
   * @retval  无
   */
-void LED_SetStatus(uint16_t LEDNum,uint8_t ByteValue)
+void LED_SetStatus(uint8_t ByteValue)
 {
 	GPIO_Write(GPIOA,ByteValue);
 }

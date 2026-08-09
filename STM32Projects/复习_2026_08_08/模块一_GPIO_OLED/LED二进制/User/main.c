@@ -11,11 +11,7 @@ int main()
 	while(1)
 	{
 		Num++;
-		/*LED_SetStatus(~Num);*/
-		LED_SetState(LED1,~(Num & 0x01));
-		LED_SetState(LED2,~(Num & 0x02));
-		LED_SetState(LED3,~(Num & 0x04));
-		LED_SetState(LED4,~(Num & 0x08));
+		LED_SetStatus(~Num);
 		Delay_ms(500);
 	}
 }
