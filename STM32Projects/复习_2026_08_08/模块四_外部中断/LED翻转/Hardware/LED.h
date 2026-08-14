@@ -2,6 +2,7 @@
 #define __LED_H__
 
 void LED_Init(void);
-void LED_SetStatus(uint8_t ByteValue);
+void LED1_TurnStatus(void);
+void LED2_TurnStatus(void);
 
 #endif
