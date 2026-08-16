@@ -3,7 +3,7 @@
 
 uint8_t Key1_Flag = 0,Key2_Flag = 0,Key3_Flag = 0;
 
-void Key_Init()
+void Key_Init(void)
 {
 	// RCC开启时钟
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE);

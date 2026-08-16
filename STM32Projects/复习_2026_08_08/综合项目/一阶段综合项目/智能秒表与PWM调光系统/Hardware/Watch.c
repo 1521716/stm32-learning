@@ -1,6 +1,6 @@
 #include "stm32f10x.h"                  // Device header
 
-uint8_t Watch_Flag = 0;
+uint8_t Watch_Flag = 0,Watch_run_Flag = 0;
 
 void Watch_Init(void)
 {
@@ -21,6 +21,7 @@ void Watch_Init(void)
 	TIM_TimeBaseInit(TIM2,&TIM_TimeBaseInitStructure);
 	
 	// 开启中断
+	TIM_ClearITPendingBit(TIM2,TIM_IT_Update);
 	TIM_ITConfig(TIM2,TIM_IT_Update,ENABLE);
 	
 	// 配置NVIC
@@ -32,7 +33,9 @@ void Watch_Init(void)
 	NVIC_Init(&NVIC_InitStructure);
 	
 	// 使能定时器
-	TIM_Cmd(TIM2,ENABLE);
+	TIM_Cmd(TIM2,DISABLE);
+	
+	
 	
 }
 
