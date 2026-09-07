@@ -3,6 +3,7 @@
 
 #define MPU6050_ADDRESS 0xD0
 
+/*  等待事件  */
 void MPU6050_WaitEvent(I2C_TypeDef* I2Cx, uint32_t I2C_EVENT)
 {
 	uint32_t Timeout;
@@ -14,6 +15,7 @@ void MPU6050_WaitEvent(I2C_TypeDef* I2Cx, uint32_t I2C_EVENT)
 			break;
 	}
 }
+/*  写入数据  */
 void MPU6050_WriteReg(uint8_t RegAddress,uint8_t Data)
 {
 	
@@ -32,7 +34,7 @@ void MPU6050_WriteReg(uint8_t RegAddress,uint8_t Data)
 	
 	I2C_GenerateSTOP(I2C2,ENABLE);
 }
-
+/*  读取数据  */
 uint8_t MPU6050_ReadReg(uint8_t RegAddress)
 {
 	uint8_t Data;
@@ -64,6 +66,7 @@ uint8_t MPU6050_ReadReg(uint8_t RegAddress)
 	
 }
 
+/*  初始化  */
 void MPU6050_Init(void)
 {
 	// RCC
@@ -98,11 +101,13 @@ void MPU6050_Init(void)
 	MPU6050_WriteReg(MPU6050_ACCEL_CONFIG,0x18); // 配置加速度配置寄存器（最大量程）
 }
 
+/*  获取设备号  */
 uint8_t	MPU6050_GetID(void)
 {
 	return MPU6050_ReadReg(MPU6050_WHO_AM_I);
 }
 
+/*  获取数据  */
 void MPU6050_GetData(int16_t *AccX,int16_t *AccY,int16_t *AccZ,
 						int16_t *GyroX,int16_t *GyroY,int16_t *GyroZ)
 {

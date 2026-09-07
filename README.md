@@ -27,3 +27,9 @@
 
 ## 仓库中当前存在的目录
 - STM32Projects
+
+## 本次变更
+新增/更新项目: I2C_learn (Keil5: True)
+
+## 仓库中当前存在的目录
+- STM32Projects
